@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Price Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            text-align: center;
+            padding: 40px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-top: 30px;
+        }
+        select {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 30px;
+            font-size: 20px;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stock Price Predictor</h1>
+    <form method="POST">
+        <select name="symbol" required>
+            <option value="">-- Select a stock --</option>
+            <option value="IRCTC.NS">IRCTC</option>
+            <option value="TATAMOTORS.NS">Tata Motors</option>
+            <option value="IRFC.NS">IRFC</option>
+            <option value="BEL.NS">BEL</option>
+            <option value="HAL.NS">HAL</option>
+            <option value="MAZDOCK.NS">Mazagon Dock</option>
+            <option value="RVNL.NS">RVNL</option>
+            <option value="TWL.NS">Titagarh Wagons</option>
+            <option value="VEDL.NS">Vedanta</option>
+        </select>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction %}
+        <div class="result">
+            <p>Predicted closing price for {{ predicted_date }}: ₹{{ prediction }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
